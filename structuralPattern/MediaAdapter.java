@@ -11,11 +11,12 @@ public class MediaAdapter implements MediaPlayer {
 	public MediaAdapter(File fileName){
 		if((fileName.getName().endsWith(".mp3")) || (fileName.getName().endsWith(".MP3"))){
 			advancedSongPlayer = new Mp3Player();
-    		type = "mp3";
-    	}else if(fileName.getName().endsWith(".wav") || fileName.getName().endsWith(".WAV")){
-    		type = "wav";
-    		advancedSongPlayer = new WavPlayer();
-    	}
+    		        type = "mp3";
+    	        } 
+		else if(fileName.getName().endsWith(".wav") || fileName.getName().endsWith(".WAV")){
+    		        type = "wav";
+    		        advancedSongPlayer = new WavPlayer();
+    	        }
 	}
 	
 	@Override
@@ -29,5 +30,4 @@ public class MediaAdapter implements MediaPlayer {
 	public void stop(File fileName) {
 		advancedSongPlayer.stopMedia(fileName);
 	}
-
 }
