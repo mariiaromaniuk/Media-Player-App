@@ -24,26 +24,24 @@ public class Client {
 	private static RadioStationSong currentSong;
 	public static int fileDirecType;
 	
+	
 	public static void main(String[] args){
-		
-		
-		
+
 		// The program can determine which kind of system you are running the program on, 
 		// and to make sure to provide the correct file paths
 		fileDirecType = isSystemMacOrPC();
 		
-		// initialize (or retrieve) single instance of GUI
+		// Initialize (or retrieve) single instance of GUI
 		gui = BuildGUI.getSingleGUI();
 		
-		// initialize audioPlayer
+		// Initialize audioPlayer
 		audioPlayer = new AudioPlayer();
 	
-		// initialize collection and iterator:
+		// Initialize collection and iterator:
 		radioStatns = getRadioStations();
 		iterator = radioStatns.iterator(RadioStationTypeEnum.ALL);
 
 		currentSong = null;
-		
 		
 		gui.chillBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e){
@@ -82,7 +80,7 @@ public class Client {
 		});
 		
 		
-		//ITERATOR action listener (next song button)
+		// Iterator action listener (next song button)
 		gui.nextBtn.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e){
 			
@@ -99,16 +97,16 @@ public class Client {
 					if(gui.output.getText().isEmpty()){
 						gui.output.setText(currentSong.toString());
 					}
-					else{
+					else {
 						gui.output.setText(gui.output.getText() + "\r\n" + currentSong.toString());
 					}
-				}else{
+				}
+				else {
 					gui.output.setText(gui.output.getText() + "\r\n" + "End of " +currentStation.toString()+ " playlist." + " Please select a station.");
 					radioStationCurrentlyPlaying = false;
 					currentStation = null;
 					gui.panel4.setVisible(false);
 				}
-				
 			}
 		});
 		
@@ -122,7 +120,6 @@ public class Client {
 			}
 		});
 		
-
 	}
 	
 	private static RadioStationCollectionInterface getRadioStations(){
@@ -185,7 +182,6 @@ public class Client {
 		for(int i=0; i<rhcpFiles.length; i++){
 			stations.addRadioStation(new RadioStationSong(RadioStationTypeEnum.RHCP, rhcpFiles[i]));
 		}
-		
 		return stations;
 	}
 	
@@ -193,7 +189,8 @@ public class Client {
 	private static void stationButtonClicked(RadioStationTypeEnum type){
 		if(!radioStationCurrentlyPlaying){
 			gui.panel4.setVisible(true);
-		}else{
+		}
+		else {
 			audioPlayer.stop(currentSong.getSongFile());
 			radioStationCurrentlyPlaying = false;
 		}
@@ -206,10 +203,11 @@ public class Client {
 			if(gui.output.getText().isEmpty()){
 				gui.output.setText(currentSong.toString());
 			}
-			else{
+			else {
 				gui.output.setText(gui.output.getText() + "\r\n" + currentSong.toString());
 			}
-		}else{
+		}
+		else {
 			System.out.println("Playlist is empty");
 			return;
 		}
@@ -219,13 +217,12 @@ public class Client {
 	
 	
 	private static void startTheSong(){
-		
 		audioPlayer.play(currentSong.getSongFile());
 	}
 	
 	public static void shuffleSongs(File[] a){
 		Random rand = ThreadLocalRandom.current();
-		for(int i=a.length-1; i>0; i--){
+		for(int i = a.length-1; i > 0; i--){
 			int j = rand.nextInt(i+1);
 			File temp = a[j];
 			a[j] = a[i];
@@ -233,13 +230,11 @@ public class Client {
 		}
 	}
 	
-	public static int isSystemMacOrPC(){ //returns 0 for mac, 1 for PC
+	public static int isSystemMacOrPC(){ // returns 0 for mac, 1 for PC
 		String sysProp = System.getProperty("os.name");
 		if(sysProp.contains("Mac")){
 			return 0;
-		}else return 1;
-	}
-	
-	
-	
+		} else 
+			return 1;
+	}	
 }
