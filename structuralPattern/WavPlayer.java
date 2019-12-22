@@ -19,7 +19,7 @@ public class WavPlayer implements AdvancedMediaPlayer {
 			clip.open(AudioSystem.getAudioInputStream(fileName));
 			clip.start();
 			
-		}catch(Exception e){
+		} catch(Exception e) {
 			
 		}
 	}
@@ -30,5 +30,4 @@ public class WavPlayer implements AdvancedMediaPlayer {
 			clip.stop();
 		}
 	}
-	
 }
