@@ -32,7 +32,6 @@ public class RadioStationSong {
 		return this.song;
 	}
 	
-	
 	@Override
 	public String toString(){
 		return this.TYPE+ ": " + this.song.getName();
