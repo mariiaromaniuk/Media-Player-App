@@ -31,9 +31,9 @@ public class Mp3Player implements AdvancedMediaPlayer {
 		thread = new Thread(){
 			public void run(){
 				try{
-					 playMp3.play();
+					playMp3.play();
 					 
-				}catch(Exception e){
+				} catch(Exception e){
 					System.out.println(e);
 				}
 			}
