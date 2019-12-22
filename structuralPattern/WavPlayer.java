@@ -20,7 +20,7 @@ public class WavPlayer implements AdvancedMediaPlayer {
 			clip.start();
 			
 		} catch(Exception e) {
-			
+			System.out.println(e);
 		}
 	}
 
