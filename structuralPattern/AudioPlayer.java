@@ -8,11 +8,12 @@ public class AudioPlayer implements MediaPlayer {
 	
 	@Override
 	public void play(File fileName) {
-		if((fileName.getName().endsWith(".mp3")) || (fileName.getName().endsWith(".MP3")) || (fileName.getName().endsWith(".wav")) || (fileName.getName().endsWith(".WAV"))){
-//			System.out.println("Playing: "+fileName);
+		if((fileName.getName().endsWith(".mp3")) || (fileName.getName().endsWith(".MP3")) || 
+		   (fileName.getName().endsWith(".wav")) || (fileName.getName().endsWith(".WAV"))){
 			mediaAdapter = new MediaAdapter(fileName);
 			mediaAdapter.play(fileName);
-		}else{
+		}
+		else {
 			System.out.println("Invalid media type");
 		}
 	}
@@ -21,5 +22,4 @@ public class AudioPlayer implements MediaPlayer {
 	public void stop(File fileName) {
 		mediaAdapter.stop(fileName);
 	}
-
 }
