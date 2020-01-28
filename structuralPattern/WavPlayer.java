@@ -1,6 +1,6 @@
 package structuralPattern;
-import java.io.File;
 
+import java.io.File;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
