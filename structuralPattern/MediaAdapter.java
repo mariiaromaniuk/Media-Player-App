@@ -1,5 +1,4 @@
 package structuralPattern;
-
 import java.io.File;
 
 
